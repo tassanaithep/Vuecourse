@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Instance</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2> {{message}}</h2>
+        <ul>
+            <h3>
+                <li v-for="product in products">{{product}}</li>
+            </h3>
+        </ul>
+        <ul>
+            <h3>
+                <li v-for="person in persons">{{person.name}}({{person.age}})
+                    <span v-if="person.age < 18">Teen</span>
+                    <span v-if="person.age >18">Adult</span></li>
+            </h3>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello v-loop',
+                products: ['Coffee', 'Tea', 'Milk', 'Beer'],
+                persons: [
+                    { name: 'Samit', age: 33, status: false },
+                    { name: 'Sirirat', age: 28, status: true },
+                    { name: 'Nara', age: 12, status: false },
+                ]
+
+            },
+            methods: {
+                showGuest: function () {
+
+                    this.status = true
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

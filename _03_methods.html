@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Instance</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Product Name :{{product}} </h1>
+        <h1>Product Price:{{price}} </h1>
+        <h1>Discount :{{discount}} %</h1>
+        <h1>Total price is :{{totalPrice()}}</h1>
+        <h1>NewProduct :{{changeProduct("Jean")}}</h1>
+        <img v-bind:src="picUrl" alt="" width="200">
+        <a v-bind:href="picUrl"> Click picture</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                product: "Cloths",
+                price: 299,
+                discount: 30,
+                picUrl:"https://png.pngtree.com/thumb_back/fw800/back_pic/03/96/79/9557ee154608f74.jpg"
+            },
+            methods: {
+                totalPrice: function () {
+                    return this.price - ((this.price * this.discount) / 100)
+                },
+                changeProduct: function (name) {
+                    return this.product = name
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

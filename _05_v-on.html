@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Instance</title>
+</head>
+
+<body>
+    <div id="app">
+        Visitor : {{ visitor }}
+        <p>
+            <button v-on:click="addVisitor">+ Add</button>
+            <button @click="subtracVisitor">- Subtract</button>
+        </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                topic: 'How is it to learning Vue ?',
+                message: "Hello World",
+                location: 'Bangkok',
+                site: 'https://www.itgenius.co.th',
+                visitor: 150
+
+            },
+            methods: {
+                addVisitor: function () {
+                    this.visitor++
+                },
+                subtracVisitor:function(){
+                    this.visitor--
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

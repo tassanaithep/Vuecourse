@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Instance</title>
+</head>
+
+<body>
+    <div id="app">
+            <label for="">พนักงาน</label>
+            <input type="text" ref="empName" v-model="newData.empName">
+            <label for="">เงินเดือน</label>
+            <input type="text" name="" id="" v-model="newData.empSalary" @keyup.13="addEmp">
+            <button @click="addEmp">บันทึกข้อมูล</button>
+    
+            <ul>
+                <li v-for="emp in empGroup">{{ emp.empName }} เงินเดือน {{ emp.empSalary }}</li>
+            </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                newData: {
+                    empName: '',
+                    empSalary: 0
+                },
+                empGroup: [
+                    {
+                        empName: 'Samit',
+                        empSalary: 30000
+                    },
+                    {
+                        empName: 'Sirirat',
+                        empSalary: 40000
+                    }
+                ]
+            },
+            methods: {
+                addEmp: function () {
+                    if (this.newData.empName != "") {
+                        this.empGroup.push({
+                            empName: this.newData.empName,
+                            empSalary: this.newData.empSalary
+                        })
+                        this.newData.empName = ''
+                        this.newData.empSalary = 0
+                        this.$refs.empName.focus()
+                    }else{
+                        alert('Please input some data')
+                        this.$refs.empName.focus()
+                    }
+                }
+            },
+
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Instance</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <h4 v-if="status"> Your Are guest </h4>
+        <button @click="showGuest">Click Show guest</button>
+        <button @Click="status  =!status"> ToggleShow guest </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello World If Condition",
+                status: false
+            },
+            methods: {
+showGuest:function(){
+
+    this.status=true
+}
+            },
+
+        })
+    </script>
+</body>
+
+</html>
